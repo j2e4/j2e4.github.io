@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <title>최신 버전 Babel로 업데이트하기 in Vue 2 // A Better Tomorrow</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.110.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Jainee" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/css/main.min.9e9c6027c30f5aa9423b581bd9cddd1ddc66088adb9c2604f89eb5828efea5a1.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="최신 버전 Babel로 업데이트하기 in Vue 2"/>
+<meta name="twitter:description" content="자바스크립트 문법 중 하나인 옵셔널 체이닝(Optional Chaining)을 프로젝트 코드에서 사용하기 위해 알아보고 진행한 내용을 정리한다.
+옵셔널 체이닝만 사용하고자 한다면 공식 문서에서 안내하는 대로 의존성을 추가해줘도 된다. (참고: https://babeljs.io/docs/babel-plugin-proposal-optional-chaining#installation)
+하지만 해당 플러그인을 포함하는 바벨 버전으로 업그레이드해 넓은 범위의 해결을 추구하는 것이 좋지 않을까 한다.
+Optional Chaining을 지원하는 Babel 버전 옵셔널 체이닝을 지원하는 바벨의 플러그인은 @babel/plugin-proposal-optional-chaining이고 v7.8.0 이상의 @babel/preset-env에서 지원한다.
+알아본 바로는 v4.5.19 이상의 vue-cli부터 에러 없이 사용할 수 있다.
+Latest 버전 확인하기 Vue 2에서 지원하는 Babel 플러그인의 latest 버전은 5."/>
+
+    <meta property="og:title" content="최신 버전 Babel로 업데이트하기 in Vue 2" />
+<meta property="og:description" content="자바스크립트 문법 중 하나인 옵셔널 체이닝(Optional Chaining)을 프로젝트 코드에서 사용하기 위해 알아보고 진행한 내용을 정리한다.
+옵셔널 체이닝만 사용하고자 한다면 공식 문서에서 안내하는 대로 의존성을 추가해줘도 된다. (참고: https://babeljs.io/docs/babel-plugin-proposal-optional-chaining#installation)
+하지만 해당 플러그인을 포함하는 바벨 버전으로 업그레이드해 넓은 범위의 해결을 추구하는 것이 좋지 않을까 한다.
+Optional Chaining을 지원하는 Babel 버전 옵셔널 체이닝을 지원하는 바벨의 플러그인은 @babel/plugin-proposal-optional-chaining이고 v7.8.0 이상의 @babel/preset-env에서 지원한다.
+알아본 바로는 v4.5.19 이상의 vue-cli부터 에러 없이 사용할 수 있다.
+Latest 버전 확인하기 Vue 2에서 지원하는 Babel 플러그인의 latest 버전은 5." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://j2e4.github.io/post/update-babel-in-vue-two/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-02-16T00:21:53+09:00" />
+<meta property="article:modified_time" content="2023-02-16T00:21:53+09:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://j2e4.github.io/"><img class="app-header-avatar" src="/avatar.jpeg" alt="Jainee" /></a>
+      <span class="app-header-title">A Better Tomorrow</span>
+      <p>오늘보다 내일 더 나은 서비스를 만들기 위해 개발합니다.</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/j2e4" target="_blank" rel="noreferrer noopener me">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://j2e4.tistory.com/" target="_blank" rel="noreferrer noopener me">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-type">
+  <title>Tistory</title>
+  <polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">최신 버전 Babel로 업데이트하기 in Vue 2</h1>
+      <div class="post-meta">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Feb 16, 2023
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          2 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p>자바스크립트 문법 중 하나인 옵셔널 체이닝(Optional Chaining)을 프로젝트 코드에서 사용하기 위해 알아보고 진행한 내용을 정리한다.<br>
+옵셔널 체이닝만 사용하고자 한다면 공식 문서에서 안내하는 대로 의존성을 추가해줘도 된다. (참고: <a href="https://babeljs.io/docs/babel-plugin-proposal-optional-chaining#installation">https://babeljs.io/docs/babel-plugin-proposal-optional-chaining#installation</a>)<br>
+하지만 해당 플러그인을 포함하는 바벨 버전으로 업그레이드해 넓은 범위의 해결을 추구하는 것이 좋지 않을까 한다.</p>
+<h2 id="optional-chaining을-지원하는-babel-버전">Optional Chaining을 지원하는 Babel 버전</h2>
+<p>옵셔널 체이닝을 지원하는 바벨의 플러그인은 <a href="https://babeljs.io/docs/babel-plugin-proposal-optional-chaining">@babel/plugin-proposal-optional-chaining</a>이고 v7.8.0 이상의 <a href="https://babeljs.io/docs/babel-preset-env">@babel/preset-env</a>에서 지원한다.<br>
+알아본 바로는 <a href="https://github.com/vuejs/vue-cli/releases/tag/v4.5.19">v4.5.19 이상의 vue-cli</a>부터 에러 없이 사용할 수 있다.</p>
+<h3 id="latest-버전-확인하기">Latest 버전 확인하기</h3>
+<p>Vue 2에서 지원하는 Babel 플러그인의 latest 버전은 <strong>5.0.8</strong>이다.<br>
+<code>yarn outdated</code> 명령으로 확인할 수 있다.</p>
+<h3 id="latest-버전으로-업데이트하기">Latest 버전으로 업데이트하기</h3>
+<p><code>yarn upgrade</code> 명령에 <code>-L</code>, <code>--latest</code> 옵션을 주면 package.json 파일에 적힌 범위를 무시하고 최신 버전으로 업데이트할 수 있다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>yarn upgrade @vue/cli-plugin-babel -L
+</span></span><span style="display:flex;"><span>yarn upgrade @vue/cli-plugin-eslint -L
+</span></span><span style="display:flex;"><span>yarn upgrade @vue/cli-service -L
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;devDependencies&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@vue/cli-plugin-babel&#34;</span>: <span style="color:#e6db74">&#34;^5.0.8&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@vue/cli-plugin-eslint&#34;</span>: <span style="color:#e6db74">&#34;^5.0.8&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;@vue/cli-service&#34;</span>: <span style="color:#e6db74">&#34;^5.0.8&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="polyfill-주입이-필요한-경우">Polyfill 주입이 필요한 경우</h2>
+<p>나의 경우, 바벨 버전을 업데이트하고자 하는 프로젝트에서 babel-polyfill 라이브러리를 사용하고 있었다.
+babel-polyfill 라이브러리는 Babel v7.4부터 deprecated 패키지라서 대체해 주어야 했다.<br>
+(참고: <a href="https://babeljs.io/docs/babel-polyfill">https://babeljs.io/docs/babel-polyfill</a>)</p>
+<h3 id="babel-loader-설정">Babel Loader 설정</h3>
+<p>Webpack이 번들링할 때 Babel Loader가 전처리할 수 있도록 Webpack 공식 문서를 참고해 Loader 설정을 진행했다.<br>
+(참고: <a href="https://webpack.js.org/loaders/babel-loader/">https://webpack.js.org/loaders/babel-loader/</a>)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// webpack.config.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">test</span><span style="color:#f92672">:</span> <span style="color:#e6db74">/\.m?js$/</span>,
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">exclude</span><span style="color:#f92672">:</span> <span style="color:#e6db74">/node_modules/</span>,
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">use</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">loader</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;babel-loader&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">options</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">presets</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>      [<span style="color:#e6db74">&#34;@babel/preset-env&#34;</span>, { <span style="color:#a6e22e">useBuiltIns</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;usage&#34;</span>, <span style="color:#a6e22e">corejs</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;3&#34;</span> }],
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ...
+</span></span></span></code></pre></div><p><code>useBuiltIns</code>, <code>corejs</code> 옵션을 간단히 설명하면 다음과 같다.</p>
+<ul>
+<li><code>useBuiltIns</code>: polyfill을 주입할 방식에 대한 정의 (<code>&quot;usage&quot;</code>, <code>&quot;entry&quot;</code>, <code>false</code>)
+<ul>
+<li><code>&quot;usage&quot;</code>: 각 파일에서 사용하는 특정 polyfill을 주입한다.</li>
+</ul>
+</li>
+<li><code>corejs</code>: 사용할 core-js의 버전을 정의. Major 버전도 지정할 수 있다. (<code>&quot;2&quot;</code>, <code>&quot;3&quot;</code> 등)</li>
+</ul>
+<p>좀 더 다양한 옵션과 디테일한 설명은 <a href="https://babeljs.io/docs/babel-preset-env">여기</a>를 참고한다.</p>
+<h3 id="third-party-라이브러리">Third-party 라이브러리</h3>
+<p>Babel은 기본적으로 node_modules/ 경로의 파일을 처리하지 않는다고 하니, polyfill 주입이 필요한 third-party 라이브러리가 있다면 아래와 같이 설정해 주어야 한다.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// vue.config.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">transpileDependencies</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;vuetify&#34;</span>, <span style="color:#e6db74">&#34;ant-design-vue&#34;</span>],
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>};
+</span></span></code></pre></div><p>참고: <a href="https://cli.vuejs.org/config/#transpiledependencies">https://cli.vuejs.org/config/#transpiledependencies</a></p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
