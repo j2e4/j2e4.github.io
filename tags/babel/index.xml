@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Babel on A Better Tomorrow</title><link>https://j2e4.github.io/tags/babel/</link><description>Recent content in Babel on A Better Tomorrow</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Thu, 16 Feb 2023 00:21:53 +0900</lastBuildDate><atom:link href="https://j2e4.github.io/tags/babel/index.xml" rel="self" type="application/rss+xml"/><item><title>최신 버전 Babel로 업데이트하기 in Vue 2</title><link>https://j2e4.github.io/post/update-babel-in-vue-two/</link><pubDate>Thu, 16 Feb 2023 00:21:53 +0900</pubDate><guid>https://j2e4.github.io/post/update-babel-in-vue-two/</guid><description>자바스크립트 문법 중 하나인 옵셔널 체이닝(Optional Chaining)을 프로젝트 코드에서 사용하기 위해 알아보고 진행한 내용을 정리한다.
-옵셔널 체이닝만 사용하고자 한다면 공식 문서에서 안내하는 대로 의존성을 추가해줘도 된다. (참고: https://babeljs.io/docs/babel-plugin-proposal-optional-chaining#installation)
-하지만 해당 플러그인을 포함하는 바벨 버전으로 업그레이드해 넓은 범위의 해결을 추구하는 것이 좋지 않을까 한다.
-Optional Chaining을 지원하는 Babel 버전 옵셔널 체이닝을 지원하는 바벨의 플러그인은 @babel/plugin-proposal-optional-chaining이고 v7.8.0 이상의 @babel/preset-env에서 지원한다.
-알아본 바로는 v4.5.19 이상의 vue-cli부터 에러 없이 사용할 수 있다.
-Latest 버전 확인하기 Vue 2에서 지원하는 Babel 플러그인의 latest 버전은 5.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Babel on A Better Tomorrow</title><link>https://j2e4.github.io/tags/babel/</link><description>Recent content in Babel on A Better Tomorrow</description><generator>Hugo -- gohugo.io</generator><language>ko-KR</language><lastBuildDate>Thu, 16 Feb 2023 00:21:53 +0900</lastBuildDate><atom:link href="https://j2e4.github.io/tags/babel/index.xml" rel="self" type="application/rss+xml"/><item><title>Vue 2에서 최신 버전으로 Babel 플러그인 업그레이드하기</title><link>https://j2e4.github.io/post/update-babel-in-vue-two/</link><pubDate>Thu, 16 Feb 2023 00:21:53 +0900</pubDate><guid>https://j2e4.github.io/post/update-babel-in-vue-two/</guid><description>Vue.js는 @vue/cli-plugin-babel을 코어 플러그인으로 사용합니다.
+Vue.js 코드를 브라우저가 이해할 수 있는 JavaScript 코드로 트랜스파일하기 위해 Babel을 활용하죠.
+저는 옵셔널 체이닝(Optional chaining)을 프로젝트 코드에서 사용하기 위해 관련 내용을 알아보기 시작했어요.
+만약 저와 같은 목적을 갖고 계시면서 사이드 이펙트 걱정이 크신 분이시라면 공식 문서에서 안내하는 대로 필요한 의존성만 추가해줘도 괜찮습니다.
+하지만 해당 플러그인을 포함하는 버전으로 업그레이드해 넓은 범위의 해결을 추구하는 것이 좋지 않을까하는 개인적인 의견을 덧붙이며, 시작하겠습니다.
+Optional Chaining을 지원하는 Babel 버전 옵셔널 체이닝을 지원하는 바벨의 플러그인은 @babel/plugin-proposal-optional-chaining이고 v7.</description></item></channel></rss>
