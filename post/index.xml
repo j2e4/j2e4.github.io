@@ -7,12 +7,15 @@ HTML과 JavaScript를 따로따로 코딩하는 것보다 그룹으로 묶어 �
 S3 엔드포인트 이름 프레임워크 목적 AS-IS 도메인 경로 TO-BE 도메인 경로 1 서비스 애플리케이션 Vue.js 사용자에게 서비스를 제공 /를 포함한 메뉴별 경로 /를 포함하지 않는 메뉴별 경로 2 랜딩 페이지 Next.js 서비스로 사용자 유입을 도모 / / 아래 그림은 요청 경로에 따라 CloudFront가 요청을 보내는 원본이 어디인지 표현한 그림이다.</description></item><item><title>타입스크립트에서 함수 타입을 정의할 때 Generic 사용하기</title><link>https://j2e4.github.io/post/define-function-type-with-generic/</link><pubDate>Tue, 21 Mar 2023 23:11:46 +0900</pubDate><guid>https://j2e4.github.io/post/define-function-type-with-generic/</guid><description>Generic은 특정 로직을 하나 이상의 타입에 적용할 수 있게 허용하는 도구로써 좀 더 유연하게 타입을 정의할 수 있게 한다.
 Generic 타입에 전달하는 number, string과 같은 구체적인 타입을 Type Argument라 한다.
 함수 타입을 정의하는 두 가지 방법을 소개하고 두 방법이 무엇이 다른지 알아본다.
-type 키워드에서 Generic 사용하기 함수 타입을 정의할 때 Generic 사용하기 두 방법 모두 type 키워드를 사용해 함수의 파라미터와 리턴 값을 설명하는 함수 타입을 정의하지만, Generic을 사용하는 위치가 다르다.</description></item><item><title>Debounce, 마지막 이벤트만 처리하기</title><link>https://j2e4.github.io/post/debounce/</link><pubDate>Thu, 02 Mar 2023 00:21:36 +0900</pubDate><guid>https://j2e4.github.io/post/debounce/</guid><description>마지막 이벤트가 발생하고 개발자가 지정한 시간 이후에 Callback을 실행하는 이벤트 처리 방식이다.
-첫 이벤트가 발생할 때 타이머를 지정, 이후 이벤트가 발생할 때마다 타이머를 갱신한다.
-더 이상 이벤트가 발생하지 않아 타이머를 갱신하지 않게 되면, 마지막으로 발생한 이벤트의 타이머가 끝날 때 Callback을 실행한다.
-let debounceTimeoutId: number; function handleEventDebounce(ms: number) { if (debounceTimeoutId !== undefined) clearDebounceTimeout(); debounceTimeoutId = setTimeout(() =&amp;gt; { // do something clearDebounceTimeout(); }, ms); } function clearDebounceTimeout() { clearTimeout(debounceTimeoutId); debounceTimeoutId = undefined; } 비교: Throttle 처음 이벤트가 발생하고 개발자가 지정한 시간 이후에 Callback을 실행하는 이벤트 처리 방식이다.</description></item><item><title>최신 버전 Babel로 업데이트하기 in Vue 2</title><link>https://j2e4.github.io/post/update-babel-in-vue-two/</link><pubDate>Thu, 16 Feb 2023 00:21:53 +0900</pubDate><guid>https://j2e4.github.io/post/update-babel-in-vue-two/</guid><description>자바스크립트 문법 중 하나인 옵셔널 체이닝(Optional Chaining)을 프로젝트 코드에서 사용하기 위해 알아보고 진행한 내용을 정리한다.
-옵셔널 체이닝만 사용하고자 한다면 공식 문서에서 안내하는 대로 의존성을 추가해줘도 된다. (참고: https://babeljs.io/docs/babel-plugin-proposal-optional-chaining#installation)
-하지만 해당 플러그인을 포함하는 바벨 버전으로 업그레이드해 넓은 범위의 해결을 추구하는 것이 좋지 않을까 한다.
-Optional Chaining을 지원하는 Babel 버전 옵셔널 체이닝을 지원하는 바벨의 플러그인은 @babel/plugin-proposal-optional-chaining이고 v7.8.0 이상의 @babel/preset-env에서 지원한다.
-알아본 바로는 v4.5.19 이상의 vue-cli부터 에러 없이 사용할 수 있다.
-Latest 버전 확인하기 Vue 2에서 지원하는 Babel 플러그인의 latest 버전은 5.</description></item></channel></rss>
+type 키워드에서 Generic 사용하기 함수 타입을 정의할 때 Generic 사용하기 두 방법 모두 type 키워드를 사용해 함수의 파라미터와 리턴 값을 설명하는 함수 타입을 정의하지만, Generic을 사용하는 위치가 다르다.</description></item><item><title>Debounce, 마지막 이벤트만 처리하기 (cf. Throttle)</title><link>https://j2e4.github.io/post/debounce/</link><pubDate>Thu, 02 Mar 2023 00:21:36 +0900</pubDate><guid>https://j2e4.github.io/post/debounce/</guid><description>디바운스는 동일한 이벤트가 연달아 발생할 때 마지막 이벤트를 감지해 처리하는 이벤트 처리 방식이에요.
+마지막 이벤트가 발생하고 개발자가 지정한 시간 이후에 Callback을 실행합니다.
+디바운스를 구현하는 방법은 이벤트가 발생할 때마다 새로운 타이머를 설정해주면 돼요.
+그러다 어느 순간부터 이벤트가 발생하지 않으면 새로운 타이머를 설정하지 않을 거에요.
+그럼 마지막 이벤트가 설정한 타이머에 의해 Callback을 실행하게 됩니다.
+저는 resize 이벤트를 핸들링하는 로직, 사용자 입력에 실시간으로 반응할 필요가 없는 동작을 구현할 때 디바운스를 종종 사용해요.
+예를 들어 &amp;lt;input /&amp;gt; 입력 필드에 사용자가 입력한 값이 validation 조건에 맞지 않는 경우 힌트 메시지를 보여줘야 한다고 해볼께요.</description></item><item><title>Vue 2에서 최신 버전으로 Babel 플러그인 업그레이드하기</title><link>https://j2e4.github.io/post/update-babel-in-vue-two/</link><pubDate>Thu, 16 Feb 2023 00:21:53 +0900</pubDate><guid>https://j2e4.github.io/post/update-babel-in-vue-two/</guid><description>Vue.js는 @vue/cli-plugin-babel을 코어 플러그인으로 사용합니다.
+Vue.js 코드를 브라우저가 이해할 수 있는 JavaScript 코드로 트랜스파일하기 위해 Babel을 활용하죠.
+저는 옵셔널 체이닝(Optional chaining)을 프로젝트 코드에서 사용하기 위해 관련 내용을 알아보기 시작했어요.
+만약 저와 같은 목적을 갖고 계시면서 사이드 이펙트 걱정이 크신 분이시라면 공식 문서에서 안내하는 대로 필요한 의존성만 추가해줘도 괜찮습니다.
+하지만 해당 플러그인을 포함하는 버전으로 업그레이드해 넓은 범위의 해결을 추구하는 것이 좋지 않을까하는 개인적인 의견을 덧붙이며, 시작하겠습니다.
+Optional Chaining을 지원하는 Babel 버전 옵셔널 체이닝을 지원하는 바벨의 플러그인은 @babel/plugin-proposal-optional-chaining이고 v7.</description></item></channel></rss>
