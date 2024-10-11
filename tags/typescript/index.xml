@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>TypeScript on A Better Tomorrow</title><link>https://j2e4.github.io/tags/typescript/</link><description>Recent content in TypeScript on A Better Tomorrow</description><generator>Hugo</generator><language>ko-KR</language><lastBuildDate>Thu, 23 Nov 2023 21:47:56 +0900</lastBuildDate><atom:link href="https://j2e4.github.io/tags/typescript/index.xml" rel="self" type="application/rss+xml"/><item><title>타입스크립트에서 함수 타입을 정의할 때 Generic 사용하기</title><link>https://j2e4.github.io/post/define-function-type-with-generic/</link><pubDate>Tue, 21 Mar 2023 23:11:46 +0900</pubDate><guid>https://j2e4.github.io/post/define-function-type-with-generic/</guid><description>Generic은 특정 로직을 하나 이상의 타입에 적용할 수 있게 허용하는 도구로써 좀 더 유연하게 타입을 정의할 수 있게 한다.
-Generic 타입에 전달하는 number, string과 같은 구체적인 타입을 Type Argument라 한다.
-함수 타입을 정의하는 두 가지 방법을 소개하고 두 방법이 무엇이 다른지 알아본다.
-type 키워드에서 Generic 사용하기 함수 타입을 정의할 때 Generic 사용하기 두 방법 모두 type 키워드를 사용해 함수의 파라미터와 리턴 값을 설명하는 함수 타입을 정의하지만, Generic을 사용하는 위치가 다르다.</description></item><item><title>Debounce, 마지막 이벤트만 처리하기 (cf. Throttle)</title><link>https://j2e4.github.io/post/debounce/</link><pubDate>Thu, 02 Mar 2023 00:21:36 +0900</pubDate><guid>https://j2e4.github.io/post/debounce/</guid><description>디바운스는 동일한 이벤트가 연달아 발생할 때 마지막 이벤트를 감지해 처리하는 이벤트 처리 방식이에요.
-마지막 이벤트가 발생하고 개발자가 지정한 시간 이후에 Callback을 실행합니다.
-디바운스를 구현하는 방법은 이벤트가 발생할 때마다 새로운 타이머를 설정해주면 돼요.
-그러다 어느 순간부터 이벤트가 발생하지 않으면 새로운 타이머를 설정하지 않을 거에요.
-그럼 마지막 이벤트가 설정한 타이머에 의해 Callback을 실행하게 됩니다.
-저는 resize 이벤트를 핸들링하는 로직, 사용자 입력에 실시간으로 반응할 필요가 없는 동작을 구현할 때 디바운스를 종종 사용해요.
-예를 들어 &amp;lt;input /&amp;gt; 입력 필드에 사용자가 입력한 값이 validation 조건에 맞지 않는 경우 힌트 메시지를 보여줘야 한다고 해볼께요.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>TypeScript on A Better Tomorrow</title><link>https://j2e4.github.io/tags/typescript/</link><description>Recent content in TypeScript on A Better Tomorrow</description><generator>Hugo</generator><language>ko-KR</language><lastBuildDate>Thu, 23 Nov 2023 21:47:56 +0900</lastBuildDate><atom:link href="https://j2e4.github.io/tags/typescript/index.xml" rel="self" type="application/rss+xml"/><item><title>Debounce, 마지막 이벤트만 처리하기 (cf. Throttle)</title><link>https://j2e4.github.io/post/debounce/</link><pubDate>Thu, 02 Mar 2023 00:21:36 +0900</pubDate><guid>https://j2e4.github.io/post/debounce/</guid><description>&lt;p>디바운스는 동일한 이벤트가 연달아 발생할 때 &lt;strong>마지막 이벤트를 감지해 처리&lt;/strong>하는 이벤트 처리 방식이에요.&lt;br>
+마지막 이벤트가 발생하고 개발자가 지정한 시간 이후에 Callback을 실행합니다.&lt;/p>
+&lt;p>디바운스를 구현하는 방법은 이벤트가 발생할 때마다 새로운 타이머를 설정해주면 돼요.&lt;br>
+그러다 어느 순간부터 이벤트가 발생하지 않으면 새로운 타이머를 설정하지 않을 거에요.&lt;br>
+그럼 마지막 이벤트가 설정한 타이머에 의해 Callback을 실행하게 됩니다.&lt;/p>
+&lt;p>저는 resize 이벤트를 핸들링하는 로직, 사용자 입력에 실시간으로 반응할 필요가 없는 동작을 구현할 때 디바운스를 종종 사용해요.&lt;br>
+예를 들어 &lt;code>&amp;lt;input /&amp;gt;&lt;/code> 입력 필드에 사용자가 입력한 값이 validation 조건에 맞지 않는 경우 힌트 메시지를 보여줘야 한다고 해볼께요.&lt;br>
+만약 사용자가 아직 입력 중이라면 힌트 메시지를 바로 보여주지 않아도 괜찮습니다.&lt;br>
+이런 경우 디바운스로 핸들링 로직을 감싸 lazy하게 반응하도록 의도할 수 있어요.&lt;/p></description></item></channel></rss>
